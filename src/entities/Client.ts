@@ -1,3 +1,5 @@
+import { Telefone } from './Telefone';
+import { Endereco } from './Endereco';
 import { Entity, Column, CreateDateColumn, PrimaryColumn } from "typeorm";
 import { v4 as uuid } from "uuid";
 
@@ -12,11 +14,13 @@ export class Client {
 
     @Column()
     cpf: string;
+    
+    endereco: Endereco;
+    telefone: Telefone;
 
     @CreateDateColumn()
     data_criacao: Date;
     
-
     constructor(){
         if(!this.id){
             this.id = uuid();

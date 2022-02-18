@@ -29,7 +29,7 @@ export class CreatePhoneNumbers1645062829408 implements MigrationInterface {
         ],
         foreignKeys: [
           {
-            name: "fk_cliente_telefone",
+            name: "telefone_ibfk_1",
             columnNames: ["client_id"],
             referencedTableName: "client",
             referencedColumnNames: ["id"],

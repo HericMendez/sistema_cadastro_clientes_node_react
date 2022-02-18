@@ -15,13 +15,11 @@ export class Telefone {
 
     @Column()
     client_id: string;
-
+    
     @ManyToOne(()=>Client)
     @JoinColumn({name: "client_id"})
     client: Client;
 
-    @CreateDateColumn()
-    data_criacao: Date;
 
     constructor(){
         if(!this.id){

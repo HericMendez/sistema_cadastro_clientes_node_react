@@ -5,6 +5,7 @@ import { Client } from './../entities/Client';
 type ClientRequest = {
     nome: string;
     cpf: string;
+
 };
 
 export class CreateClientService {

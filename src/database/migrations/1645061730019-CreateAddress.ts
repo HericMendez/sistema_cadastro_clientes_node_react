@@ -31,15 +31,10 @@ export class CreateAddress1645061730019 implements MigrationInterface {
             type: "varchar",
             generationStrategy: "uuid",
           },
-          {
-            name: "data_criacao",
-            type: "timestamp",
-            default: "now()",
-          },
         ],
         foreignKeys: [
           {
-            name: "fk_enderecos_cliente",
+            name: "endereco_ibfk_1",
             columnNames: ["client_id"],
             referencedTableName: "client",
             referencedColumnNames: ["id"],

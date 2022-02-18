@@ -17,9 +17,9 @@ export class CreateAddressService {
     client_id,
   }: EnderecoRequest) {
     const repository = getRepository(Endereco);
-    const repoCategory = getRepository(Client);
+    const repoClient = getRepository(Client);
 
-    if (!(await repoCategory.findOne(client_id))) {
+    if (!(await repoClient.findOne(client_id))) {
       return new Error("Cliente não cadastrado!");
     }
 

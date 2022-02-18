@@ -11,7 +11,7 @@ import { Client } from "./Client";
 
 @Entity("endereco")
 export class Endereco {
-  @PrimaryColumn()
+  @PrimaryColumn("uuid")
   id: string;
 
   @Column()
@@ -32,8 +32,6 @@ export class Endereco {
   @JoinColumn({ name: "client_id" })
   client: Client;
 
-  @CreateDateColumn()
-  data_criacao: Date;
 
   constructor() {
     if (!this.id) {

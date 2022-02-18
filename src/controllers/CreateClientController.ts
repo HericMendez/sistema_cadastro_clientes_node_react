@@ -4,7 +4,7 @@ import { Request as req, Response as res } from "express"
 
 export class CreateClientController{
     async handle(request: req, response: res){
-        const { nome, cpf } = request.body;
+        const { nome, cpf} = request.body;
         const service = new CreateClientService();
         const result = await service.execute({nome, cpf});
 

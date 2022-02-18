@@ -15,7 +15,7 @@ export class CreateClient1645054744949 implements MigrationInterface {
           {
             name: "nome",
             type: "varchar",
-            isUnique: true,
+
           },
           {
             name: "cpf",
@@ -27,6 +27,8 @@ export class CreateClient1645054744949 implements MigrationInterface {
             type: "timestamp",
             default: "now()",
           },
+  
+
         ],
       })
     );
