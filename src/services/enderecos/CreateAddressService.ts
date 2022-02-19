@@ -1,5 +1,5 @@
-import { Client } from "./../entities/Client";
-import { Endereco } from "./../entities/Endereco";
+import { Client } from "../../entities/Client";
+import { Endereco } from "../../entities/Endereco";
 import { getRepository } from "typeorm";
 
 type EnderecoRequest = {

@@ -1,6 +1,6 @@
 
 import { Request as req, Response as res } from "express";
-import { GetClientListService } from '../services/GetClientListService'
+import { GetClientListService } from '../../services/clientes/GetClientListService'
 
 export class GetClientListController {
     async handle(request: req, response: res){

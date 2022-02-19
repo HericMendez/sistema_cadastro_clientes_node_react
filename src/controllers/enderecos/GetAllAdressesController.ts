@@ -1,6 +1,5 @@
 import { Request as req, Response as res } from "express";
-import { Endereco } from "../entities/Endereco";
-import { GetAllAdressesService } from "../services/GetAllAdressesService";
+import { GetAllAdressesService } from "../../services/enderecos/GetAllAdressesService";
 
 export class GetAllAdressesController {
     async handle(request: req, response: res){

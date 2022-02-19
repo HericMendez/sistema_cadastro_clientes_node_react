@@ -1,4 +1,4 @@
-import { CreateAddressService } from './../services/CreateAddressService';
+import { CreateAddressService } from '../../services/enderecos/CreateAddressService';
 import { Request as req, Response as res } from "express"
 
 

@@ -1,4 +1,4 @@
-import { UpdateClientService } from './../services/UpdateClientService';
+import { UpdateClientService } from '../../services/clientes//UpdateClientService';
 import { Request as req, Response as res } from "express";
 
 export class UpdateClientController {

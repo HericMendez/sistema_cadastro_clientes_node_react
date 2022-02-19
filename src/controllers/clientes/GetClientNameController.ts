@@ -1,6 +1,6 @@
 
 import { Request as req, Response as res } from "express";
-import { GetClientNameService } from '../services/GetClientNameService'
+import { GetClientNameService } from '../../services/clientes/GetClientNameService'
 
 export class GetClientNameController {
     async handle(request: req, response: res){

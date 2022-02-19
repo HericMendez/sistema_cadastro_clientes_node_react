@@ -20,7 +20,10 @@ export class Client {
     })
     endereco: Array<Endereco>;
 
-    telefone: Telefone;
+    @OneToMany(type => Telefone, telefone => telefone.client, {
+        cascade: true
+    })
+    telefone: Array<Telefone>;
 
     @CreateDateColumn()
     data_criacao: Date;

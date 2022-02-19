@@ -1,4 +1,4 @@
-import { Endereco } from './../entities/Endereco';
+import { Endereco } from '../../entities/Endereco';
 import { getRepository } from 'typeorm';
 
 

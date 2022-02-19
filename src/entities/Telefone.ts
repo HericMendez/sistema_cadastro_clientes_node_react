@@ -13,11 +13,11 @@ export class Telefone {
     @Column()
     cpf: string;
 
-    @Column()
-    client_id: string;
+    @Column({ name: 'client_id', type: 'varchar' })
+    clientId: string;
     
-    @ManyToOne(()=>Client)
-    @JoinColumn({name: "client_id"})
+    @ManyToOne(type => Client, client => client.telefone)
+    @JoinColumn({ name: 'client_id' })
     client: Client;
 
 

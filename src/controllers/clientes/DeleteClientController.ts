@@ -1,4 +1,4 @@
-import { DeleteClientService } from './../services/DeleteClientService';
+import { DeleteClientService } from '../../services/clientes/DeleteClientService';
 import { Request as req, Response as res } from "express";
 
 export class DeleteClientController {

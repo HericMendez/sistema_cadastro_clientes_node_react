@@ -1,5 +1,5 @@
 import { getRepository } from 'typeorm';
-import { Client } from './../entities/Client';
+import { Client } from '../../entities/Client'
 
 
 type ClientRequest = {

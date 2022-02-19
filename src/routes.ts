@@ -1,10 +1,10 @@
-import { GetAllAdressesController } from './controllers/GetAllAdressesController';
-import { CreateAddressController } from './controllers/CreateAddressController';
-import { UpdateClientController } from "./controllers/UpdateClientController";
-import { DeleteClientController } from "./controllers/DeleteClientController";
+import { GetAllAdressesController } from './controllers/enderecos/GetAllAdressesController';
+import { CreateAddressController } from './controllers/enderecos/CreateAddressController';
+import { UpdateClientController } from "./controllers/clientes/UpdateClientController";
+import { DeleteClientController } from "./controllers/clientes/DeleteClientController";
 
-import { CreateClientController } from "./controllers/CreateClientController";
-import { GetClientListController } from "./controllers/GetClientListController";
+import { CreateClientController } from "./controllers/clientes/CreateClientController";
+import { GetClientListController } from "./controllers/clientes/GetClientListController";
 import { Router } from "express";
 
 const routes = Router();
@@ -14,7 +14,7 @@ routes.get("/client", new GetClientListController().handle);
 routes.delete("/client/:id", new DeleteClientController().handle);
 routes.put("/client/:id", new UpdateClientController().handle);
 
-routes.post("/lista", new CreateAddressController().handle);
-routes.get("/lista", new GetAllAdressesController().handle);
+routes.post("/enderecos", new CreateAddressController().handle);
+routes.get("/enderecos", new GetAllAdressesController().handle);
 
 export { routes };
