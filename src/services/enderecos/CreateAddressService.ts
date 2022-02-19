@@ -3,7 +3,6 @@ import { Endereco } from "../../entities/Endereco";
 import { getRepository } from "typeorm";
 
 type EnderecoRequest = {
-
   rua: string;
   cidade: string;
   cep: string;
@@ -11,13 +10,7 @@ type EnderecoRequest = {
 };
 
 export class CreateAddressService {
-  async execute({
-
-    rua,
-    cidade,
-    cep,
-    clientId,
-  }: EnderecoRequest) {
+  async execute({ rua, cidade, cep, clientId }: EnderecoRequest) {
     const repository = getRepository(Endereco);
     const repoClient = getRepository(Client);
 
@@ -31,7 +24,7 @@ export class CreateAddressService {
       cep,
       clientId,
     });
-    console.log(endereco)
+
     await repository.save(endereco);
     return endereco;
   }

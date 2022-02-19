@@ -11,7 +11,7 @@ export class CreateAddressController {
             cep,
             clientId
         } = request.body;
-
+console.log(request.body)
         const service = new CreateAddressService();
         const result = await service.execute({
 
@@ -24,7 +24,7 @@ export class CreateAddressController {
         if (result instanceof Error){
             return response.status(400).json(result.message);
         }
-
+        
         return response.json(result);
     }
 }

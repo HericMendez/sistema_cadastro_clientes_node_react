@@ -4,7 +4,7 @@ import { Client } from "./Client";
 
 @Entity("telefone")
 export class Telefone {
-    @PrimaryColumn()
+    @PrimaryColumn("uuid")
     id: string;
 
     @Column()

@@ -25,8 +25,6 @@ export class Client {
     })
     telefone: Array<Telefone>;
 
-    @CreateDateColumn()
-    data_criacao: Date;
 
     constructor(){
         if(!this.id){
