@@ -3,23 +3,25 @@ import { Endereco } from "../../entities/Endereco";
 import { getRepository } from "typeorm";
 
 type EnderecoRequest = {
+
   rua: string;
   cidade: string;
   cep: string;
-  client_id: string;
+  clientId: string;
 };
 
 export class CreateAddressService {
   async execute({
+
     rua,
     cidade,
     cep,
-    client_id,
+    clientId,
   }: EnderecoRequest) {
     const repository = getRepository(Endereco);
     const repoClient = getRepository(Client);
 
-    if (!(await repoClient.findOne(client_id))) {
+    if (!(await repoClient.findOne(clientId))) {
       return new Error("Cliente não cadastrado!");
     }
 
@@ -27,9 +29,9 @@ export class CreateAddressService {
       rua,
       cidade,
       cep,
-      client_id,
+      clientId,
     });
-
+    console.log(endereco)
     await repository.save(endereco);
     return endereco;
   }

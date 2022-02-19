@@ -30,7 +30,7 @@ export class Endereco {
   @JoinColumn({ name: 'client_id' })
   client: Client;
 
-
+  
   constructor() {
     if (!this.id) {
       this.id = uuid();
