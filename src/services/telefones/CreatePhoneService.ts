@@ -8,7 +8,7 @@ type TelefoneRequest = {
   client_id: string;
 };
 
-export class CreateAddressService {
+export class CreatePhoneService {
   async execute({
     numero_telefone,
     client_id,

@@ -10,9 +10,6 @@ export class Telefone {
     @Column()
     numero_telefone: string;
 
-    @Column()
-    cpf: string;
-
     @Column({ name: 'client_id', type: 'varchar' })
     clientId: string;
     

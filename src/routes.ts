@@ -1,3 +1,5 @@
+import { GetAllPhonesController } from './controllers/telefones/GetAllPhonesController';
+import { CreatePhoneController } from './controllers/telefones/CreatePhoneController';
 import { GetAllAdressesController } from './controllers/enderecos/GetAllAdressesController';
 import { CreateAddressController } from './controllers/enderecos/CreateAddressController';
 import { UpdateClientController } from "./controllers/clientes/UpdateClientController";
@@ -16,5 +18,8 @@ routes.put("/client/:id", new UpdateClientController().handle);
 
 routes.post("/enderecos", new CreateAddressController().handle);
 routes.get("/enderecos", new GetAllAdressesController().handle);
+
+routes.post("/telefones", new CreatePhoneController().handle);
+routes.get("/telefones", new GetAllPhonesController().handle);
 
 export { routes };
