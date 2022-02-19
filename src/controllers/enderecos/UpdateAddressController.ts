@@ -1,13 +1,13 @@
-import { UpdateClientService } from '../../services/clientes/UpdateClientService';
+import { UpdateAdressService } from '../../services/enderecos/UpdateAddressService';
 import { Request as req, Response as res } from "express";
 
-export class UpdateClientController {
+export class UpdateAddressController {
     async handle(request: req, response: res) {
         const {id}= request.params;  
-        const {nome, cpf}=request.body;
+        const {rua, cidade, cep}=request.body;
 
-        const service = new UpdateClientService();
-        const result = await service.execute({id, nome, cpf});
+        const service = new UpdateAdressService();
+        const result = await service.execute({id, rua, cidade, cep});
 
         if(result instanceof Error){
             return response.status(400).json(result.message)
