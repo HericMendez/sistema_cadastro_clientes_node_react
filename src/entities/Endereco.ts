@@ -16,20 +16,18 @@ export class Endereco {
 
   @Column()
   rua: string;
-  
+
   @Column()
   cidade: string;
 
   @Column()
   cep: string;
 
-  @Column()
-  client_id: string;
+  @Column({ name: 'client_id', type: 'varchar' })
+  clientId: string;
 
-
-
-  @ManyToOne(() => Client)
-  @JoinColumn({ name: "client_id" })
+  @ManyToOne(type => Client, client => client.endereco)
+  @JoinColumn({ name: 'client_id' })
   client: Client;
 
 

@@ -1,6 +1,6 @@
 import { Telefone } from './Telefone';
 import { Endereco } from './Endereco';
-import { Entity, Column, CreateDateColumn, PrimaryColumn } from "typeorm";
+import { Entity, Column, CreateDateColumn, PrimaryColumn, OneToMany, JoinColumn } from "typeorm";
 import { v4 as uuid } from "uuid";
 
 
@@ -14,13 +14,17 @@ export class Client {
 
     @Column()
     cpf: string;
-    
-    endereco: Endereco;
+
+    @OneToMany(type => Endereco, endereco => endereco.client, {
+        cascade: true
+    })
+    endereco: Array<Endereco>;
+
     telefone: Telefone;
 
     @CreateDateColumn()
     data_criacao: Date;
-    
+
     constructor(){
         if(!this.id){
             this.id = uuid();

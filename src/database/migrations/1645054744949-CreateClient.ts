@@ -8,14 +8,13 @@ export class CreateClient1645054744949 implements MigrationInterface {
         columns: [
           {
             name: "id",
-            type: "int",
+            type: "varchar",
             isPrimary: true,
             generationStrategy: "uuid",
           },
           {
             name: "nome",
             type: "varchar",
-
           },
           {
             name: "cpf",
@@ -27,8 +26,6 @@ export class CreateClient1645054744949 implements MigrationInterface {
             type: "timestamp",
             default: "now()",
           },
-  
-
         ],
       })
     );
