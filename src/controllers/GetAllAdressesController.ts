@@ -4,6 +4,7 @@ import { GetAllAdressesService } from "../services/GetAllAdressesService";
 
 export class GetAllAdressesController {
     async handle(request: req, response: res){
+        response.header("Access-Control-Allow-Origin", "*")
         const service = new GetAllAdressesService();
 
         const endereco = await service.execute();

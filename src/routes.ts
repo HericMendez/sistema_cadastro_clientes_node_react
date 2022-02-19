@@ -14,7 +14,7 @@ routes.get("/client", new GetClientListController().handle);
 routes.delete("/client/:id", new DeleteClientController().handle);
 routes.put("/client/:id", new UpdateClientController().handle);
 
-routes.post("/endereco", new CreateAddressController().handle);
-routes.get("/endereco", new GetAllAdressesController().handle);
+routes.post("/lista", new CreateAddressController().handle);
+routes.get("/lista", new GetAllAdressesController().handle);
 
 export { routes };
