@@ -22,7 +22,8 @@ export class CreatePhoneService {
       numero_telefone,
       clientId,
     });
-    console.log(telefone);
+
+
     await repository.save(telefone);
     return telefone;
   }
