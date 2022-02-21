@@ -11,7 +11,7 @@ import cors from "cors"
 const app = express();
 
 app.get('/', (req: Request, res: Response )=>{
-    res.send("Rodando")
+    res.send("Nothing to see here")
 })  
 
 app.use(express.json());
@@ -19,7 +19,7 @@ app.use(routes);
 app.use(cors);
 
 
-app.listen(3000, ()=> console.log("server running on port 3000"))
+app.listen(8080, ()=> console.log("server running on port 8080"))
 
 
 
