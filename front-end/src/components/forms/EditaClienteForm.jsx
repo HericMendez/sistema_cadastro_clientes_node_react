@@ -17,9 +17,15 @@ const EditaClienteForm = (props) => {
   return (
     <form
       onSubmit={(event) => {
-        event.preventDefault();
-
-        props.atualizaCliente(cliente.id, cliente);
+        const confirmaDelete = window.confirm(
+          `Confirma alteração de dados do cliente ${cliente.nome}?`
+        );
+        if (confirmaDelete) {
+          props.atualizaCliente(cliente.id, cliente);
+          window.location.reload();
+        } else {
+          return;
+        }
       }}
     >
       <label>Nome</label>

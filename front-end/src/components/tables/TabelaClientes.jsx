@@ -19,15 +19,7 @@ const TabelaClientes = (props) => (
               <button
                 className="button muted-button"
                 onClick={() => {
-                  const confirmaDelete = window.confirm(
-                    `Confirma alteração de dados do cliente ${cliente.nome}?`
-                  );
-                  if (confirmaDelete) {
-                    props.editaCliente(cliente);
-                    window.location.reload();
-                  } else {
-                    return;
-                  }
+                  props.editaCliente(cliente);
                 }}
               >
                 Alterar
