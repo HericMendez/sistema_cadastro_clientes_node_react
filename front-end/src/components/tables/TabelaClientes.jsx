@@ -15,7 +15,7 @@ const TabelaClientes = (props) => (
             {console.log(cliente.id)}
             <td>{cliente.nome}</td>
             <td>{cliente.cpf}</td>
-            <td>
+            <td className="row-buttons">
               <button
                 className="button muted-button"
                 onClick={() => {

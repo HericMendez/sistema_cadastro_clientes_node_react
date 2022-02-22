@@ -632,7 +632,8 @@ dd {
 }
 
 /* Large screen breakpoint */
-@media (min-width: 1000px) {
+/*
+@media (min-width: 100000px) {
   .flex-large {
     flex: 1;
     margin-bottom: 0;
@@ -1000,6 +1001,9 @@ td {
   padding: 0.5rem;
 }
 
+.row-buttons{
+  text-align: end;
+}
 caption {
   padding: 1rem 0;
   caption-side: bottom;
@@ -1011,10 +1015,10 @@ caption {
 }
 
 .contain-table {
-  overflow-x: auto;
+
 }
 
-@media (min-width: 600px) {
+@media (min-width: 20000px) {
   .contain-table {
     width: 100%;
   }
