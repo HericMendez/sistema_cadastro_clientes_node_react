@@ -21,7 +21,7 @@ const TabelaClientes = (props) => (
               >Alterar</button>
               <button
                 className="button muted-button"
-                onClick={() => props.deletaCliente(cliente.id)}
+                onClick={() => props.deletaCliente(cliente.nome)}
               >Excluir</button>
             </td>
           </tr>

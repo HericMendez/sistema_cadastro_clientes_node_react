@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import AddClienteForm from "./components/forms/AddClienteForm";
 import EditaClienteForm from "./components/forms/EditaClienteForm";
 import TabelaClientes from "./components/tables/TabelaClientes";
-import Api from "./api";
+import connectApi from "./api";
 
 const App = () => {
 
@@ -22,7 +22,7 @@ const App = () => {
   const [clienteAtual, setClienteAtual] = useState(initialFormState);
 
   async function getClientApi(){
-   await Api.get(`client/`)
+   await connectApi.get(`client/`)
       .then((res) => {
         console.log("data from API:", res.data);
         if(res.data == null)
@@ -68,9 +68,30 @@ const App = () => {
     */
   };
 
+
+
+
+  //não funciona
   const deletaCliente = (id) => {
-    setClientes(clientes.filter((cliente) => cliente.id !== id));
+   console.log(`${id}` ) 
+   
+   connectApi.delete('/client',id)
+   .then(res => {
+     setModoEdicao(false);
+    setClientes(clientes.filter(cliente => cliente.nome !== id));
+
+   }).catch(err => {
+     console.log(err);
+   });
+        console.log(clientes)
+
   };
+  function generatePayload(nome, cpf){
+    return{
+      nameValue: nome,
+      cpfValue: cpf
+    }
+  }
 
   return (
     <div className="container">
