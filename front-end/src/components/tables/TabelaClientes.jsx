@@ -10,8 +10,9 @@ const TabelaClientes = (props) => (
     </thead>
     <tbody>
       {props.clientes.length > 0 ? (
-        props.clientes.map((cliente) => (
-          <tr key={cliente.id}>
+        props.clientes.map((cliente, id) => (
+          <tr key={id}>
+            {console.log(cliente.id)}
             <td>{cliente.nome}</td>
             <td>{cliente.cpf}</td>
             <td>
@@ -21,7 +22,7 @@ const TabelaClientes = (props) => (
               >Alterar</button>
               <button
                 className="button muted-button"
-                onClick={() => props.deletaCliente(cliente.nome)}
+                onClick={() => props.deletaCliente(cliente.id)}
               >Excluir</button>
             </td>
           </tr>

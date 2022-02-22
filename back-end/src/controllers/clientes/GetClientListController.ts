@@ -4,7 +4,7 @@ import { GetClientListService } from '../../services/clientes/GetClientListServi
 
 export class GetClientListController {
     async handle(request: req, response: res){
-        response.header("Access-Control-Allow-Origin", "*")
+        //response.header("Access-Control-Allow-Origin", "*")
         const service = new GetClientListService();
         const clientList =  await service.execute();
 

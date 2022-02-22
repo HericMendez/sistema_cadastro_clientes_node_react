@@ -4,6 +4,7 @@ import { GetClientNameService } from '../../services/clientes/GetClientNameServi
 
 export class GetClientNameController {
     async handle(request: req, response: res){
+       // response.header("Access-Control-Allow-Origin", "*")
         const {nome} = request.params;
         const service = new GetClientNameService();
         const clientname =  await service.execute(nome);

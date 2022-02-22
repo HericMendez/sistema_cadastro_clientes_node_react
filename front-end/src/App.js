@@ -39,8 +39,18 @@ const App = () => {
   };
   console.log(clientes)
   const addCliente = (cliente) => {
-    cliente.id = clientes.length + 1;
-    setClientes([...clientes, cliente]);
+
+    console.log('call api');
+		let payload = generatePayload(cliente.nome, cliente.cpf);
+    console.log(payload)
+	connectApi.post(`/client/`, payload)
+		.then(res => {
+			console.log(res);
+			setClientes([...clientes, res.data]);
+		}).catch(err => {
+			console.log(err);
+		});
+
   };
 
   const editaCliente = (cliente) => {
@@ -53,6 +63,18 @@ const App = () => {
   };
 
   const atualizaCliente = (id, clienteAtualizado) => {
+    console.log('call api');
+		
+		let payload = generatePayload(clienteAtualizado.nome, clienteAtualizado.cpf);;
+		connectApi.patch(`/client/${id}`, payload)
+		.then(res => {
+			setClientes(clientes.map(cliente => (cliente.nome === id ? clienteAtualizado : cliente)))
+			modoEdicao(false);
+		}).catch(err => {
+			console.log(err);
+		});
+
+
     setModoEdicao(false);
     setClientes(
       clientes.map((cliente) =>
@@ -73,9 +95,9 @@ const App = () => {
 
   //não funciona
   const deletaCliente = (id) => {
-   console.log(`${id}` ) 
+
    
-   connectApi.delete('/client',id)
+   connectApi.delete(`/client/${id}` )
    .then(res => {
      setModoEdicao(false);
     setClientes(clientes.filter(cliente => cliente.nome !== id));
@@ -83,13 +105,12 @@ const App = () => {
    }).catch(err => {
      console.log(err);
    });
-        console.log(clientes)
 
   };
   function generatePayload(nome, cpf){
     return{
-      nameValue: nome,
-      cpfValue: cpf
+      nome: nome,
+      cpf: cpf
     }
   }
 

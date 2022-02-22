@@ -17,19 +17,19 @@ const routes = Router();
 //Rotas do cliente:
 routes.post("/client", new CreateClientController().handle);
 routes.get("/client", new GetClientListController().handle);
-routes.put("/client/:id", new UpdateClientController().handle);
+routes.patch("/client/:id", new UpdateClientController().handle);
 routes.delete("/client/:id", new DeleteClientController().handle);
 
 //Rota dos endereços do cliente:
 routes.post("/enderecos", new CreateAddressController().handle);
 routes.get("/enderecos", new GetAllAdressesController().handle);
-routes.put("/enderecos/:id", new UpdateAddressController().handle);
+routes.patch("/enderecos/:id", new UpdateAddressController().handle);
 routes.delete("/enderecos/:id", new DeleteAddressController().handle);
 
 //Rota dos telefones do cliente:
 routes.post("/telefones", new CreatePhoneController().handle);
 routes.get("/telefones", new GetAllPhonesController().handle);
-routes.put("/telefones/:id", new UpdatePhoneController().handle);
+routes.patch("/telefones/:id", new UpdatePhoneController().handle);
 routes.delete("/telefones/:id", new DeletePhoneController().handle);
 
 export { routes };
