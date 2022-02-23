@@ -31,6 +31,17 @@ export class CreateAddress1645061730019 implements MigrationInterface {
             type: "varchar",
             generationStrategy: "uuid",
           },
+          {
+            name: "principal",
+            type: "boolean",
+            default: "false"
+          },
+
+          {
+            name: "estado",
+            type: "varchar",
+          },
+
         ],
         foreignKeys: [
           {

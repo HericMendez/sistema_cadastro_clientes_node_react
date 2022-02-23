@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import AddClienteForm from "../components/forms/AddClienteForm";
 import EditaClienteForm from "../components/forms/EditaClienteForm";
 import TabelaClientes from "../components/tables/TabelaClientes";
+
 import connectApi from "../api";
 
 const Dashboard = () => {
@@ -18,11 +19,15 @@ const Dashboard = () => {
   let clientsData = [];
   const [clientes, setClientes] = useState(clientsData);
 
+
+  let enderecoData = [];
+  const [enderecos, setEnderecos] = useState(enderecoData);
+
   const [modoEdicao, setModoEdicao] = useState(false);
   const [clienteAtual, setClienteAtual] = useState(initialFormState);
 
   async function getClientApi(){
-   await connectApi.get(`client/`)
+   await connectApi.get(`/client/`)
       .then((res) => {
         console.log("data from API:", res.data);
         if(res.data == null)
@@ -37,6 +42,26 @@ const Dashboard = () => {
         console.log(err);
       });
   };
+
+
+
+  async function getEnderecoApi(){
+    await connectApi.get(`/endereco/`)
+       .then((res) => {
+         console.log("data from API:", res.data);
+         if(res.data == null)
+         clientsData = [];
+       else
+         clientsData = res.data;
+ 
+       setEnderecos(enderecoData);
+ 
+       })
+       .catch((err) => {
+         console.log(err);
+       });
+   };
+
   console.log(clientes)
   const addCliente = (cliente) => {
 
@@ -93,7 +118,7 @@ const Dashboard = () => {
 
 
 
-  //não funciona
+
   const deletaCliente = (id) => {
 
    
@@ -107,13 +132,37 @@ const Dashboard = () => {
    });
 
   };
-  function generatePayload(nome, cpf){
+  const deletaEndereco = (id) => {
+
+   
+    connectApi.delete(`/enderecos/${id}` )
+    .then(res => {
+      setModoEdicao(false);
+     setClientes(enderecos.filter(cliente => cliente.nome !== id));
+ 
+    }).catch(err => {
+      console.log(err);
+    });
+ 
+   };
+
+
+  function generatePayload(nome, cpf, rua, cidade, estado, verdadeiro, telefone){
     return{
       nome: nome,
-      cpf: cpf
+      cpf: cpf,
+      rua: rua,
+      cidade: cidade,
+      estado: estado,
+      verdadeiro: verdadeiro,
+      telefone: telefone
     }
   }
 
+
+
+
+  
   return (
     <div className="container">
       <h1>React Frontend</h1>
@@ -141,6 +190,8 @@ const Dashboard = () => {
             clientes={clientes}
             editaCliente={editaCliente}
             deletaCliente={deletaCliente}
+            deletaEndereco={deletaEndereco}
+
           />
         </div>
       </div>

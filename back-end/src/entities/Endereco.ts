@@ -27,8 +27,15 @@ export class Endereco {
 
   @ManyToOne(type => Client, client => client.endereco)
   @JoinColumn({ name: 'client_id' })
+  
   client: Client;
 
+  
+  @Column()
+  principal: boolean;
+
+  @Column()
+  estado: string;
   
   constructor() {
     if (!this.id) {

@@ -5,20 +5,24 @@ import { Request as req, Response as res } from "express"
 export class CreateAddressController {
     async handle(request: req, response: res) {
         const {
-
+            id,
             rua,
             cidade,
             cep,
-            clientId
+            clientId,
+            principal,
+            estado
         } = request.body;
 console.log(request.body)
         const service = new CreateAddressService();
         const result = await service.execute({
-
+            id,
             rua,
             cidade,
             cep,
-            clientId
+            clientId,
+            principal,
+            estado
         })
 
         if (result instanceof Error){

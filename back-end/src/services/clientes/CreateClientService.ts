@@ -11,8 +11,8 @@ type ClientRequest = {
 export class CreateClientService {
     async execute({nome, cpf}:ClientRequest): Promise<Client | Error>{
         const repo = getRepository(Client);
-        if(await repo.findOne({nome}) || await repo.findOne({cpf})){
-            return new Error("Cliente já cadastrado!")
+        if(await repo.findOne({cpf})){
+            return new Error("CPF já cadastrado no sistema!")
         }
 
         const client = repo.create({nome, cpf});

@@ -1,16 +1,20 @@
 import { Client } from "../../entities/Client";
 import { Endereco } from "../../entities/Endereco";
-import { getRepository } from "typeorm";
+import { getRepository, QueryRunner } from "typeorm";
+
 
 type EnderecoRequest = {
+  id: string;
   rua: string;
   cidade: string;
   cep: string;
   clientId: string;
+  principal: boolean;
+  estado: string;
 };
 
 export class CreateAddressService {
-  async execute({ rua, cidade, cep, clientId }: EnderecoRequest) {
+  async execute({id,  rua, cidade, cep, clientId, principal, estado }: EnderecoRequest) {
     const repository = getRepository(Endereco);
     const repoClient = getRepository(Client);
 
@@ -19,11 +23,27 @@ export class CreateAddressService {
     }
 
     const endereco = repository.create({
+      id,
       rua,
       cidade,
       cep,
       clientId,
+      principal,
+      estado
     });
+    
+    console.log(endereco.id)
+  
+    if(principal){
+
+      getRepository(Endereco).createQueryBuilder()
+      .update()
+      .set({ principal: false })
+      .where(`id != '${endereco.id}'`)
+      .execute();
+    }
+    
+    
 
     await repository.save(endereco);
     return endereco;

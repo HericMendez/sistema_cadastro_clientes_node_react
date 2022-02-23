@@ -1,47 +1,48 @@
-
 import React, { useState } from "react";
+import AddEnderecoForm from "./AddEnderecoForm";
 
 const AddClienteForm = (props) => {
-    const initialFormState = { id: null, nome: '', cpf: '' }
-    const [cliente, setCliente] = useState(initialFormState)
+  const initialFormState = { id: null, nome: "", cpf: "" };
+  const [cliente, setCliente] = useState(initialFormState);
 
-	const handleInputChange = event => {
-		const { name, value } = event.target
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
 
-		setCliente({ ...cliente, [name]: value })
-	}
-    return (
-        <form
-            onSubmit={(event)=>{
-                event.preventDefault();
-                if(!cliente.nome || !cliente.cpf) return;
+    setCliente({ ...cliente, [name]: value });
+  };
+  return (
+    <form
+      onSubmit={(event) => {
+        event.preventDefault();
+        if (!cliente.nome || !cliente.cpf) return;
 
-                props.addCliente(cliente);
-                setCliente(initialFormState);
+        props.addCliente(cliente);
+        setCliente(initialFormState);
+      }}
+    >
+      <div>
+        <div className="side-by-side">
+          <input
+            type="text"
+            name="nome"
+            value={cliente.nome}
+            onChange={handleInputChange}
+            placeholder="Nome"
+          />
 
-            }}
-        >
-            <label>Nome</label>
-            <input
-                type="text"
-                name="nome"
-                value={cliente.nome}
-                onChange={handleInputChange}
-    
-            />
-            <label>CPF</label>
-            <input
-                type="text"
-                name="cpf"
-                value={cliente.cpf}
-                onChange={handleInputChange}
-
-            />
-            <button>Cadastrar</button>
-        </form>
-    )
-}
+          <input
+            type="text"
+            name="cpf"
+            value={cliente.cpf}
+            onChange={handleInputChange}
+            placeholder="CPF"
+          />
+        </div>
+       <AddEnderecoForm />
+      </div>
+      <button>Cadastrar</button>
+    </form>
+  );
+};
 
 export default AddClienteForm;
-
-
