@@ -1,5 +1,6 @@
 import React from "react";
 import Collapsible from "./Collapsible";
+import { BsTrashFill, BsPencilSquare } from "react-icons/bs";
 
 const TabelaClientes = (props) => (
   <table>
@@ -8,8 +9,14 @@ const TabelaClientes = (props) => (
         props.clientes.map((cliente, index) => (
           <>
             <tr key={cliente.id}>
-              <td className="dadosprincipais">Nome: {cliente.nome}</td>
-              <td className="dadosprincipais">CPF: {cliente.cpf}</td>
+              <td className="dadosprincipais">
+                <caption>Nome:</caption> {cliente.nome}
+              </td>
+              <td className="dadosprincipais">
+                <caption>CPF:</caption>
+                {cliente.cpf}
+              </td>
+              
 
               <td className="row-buttons">
                 {console.log()}
@@ -19,7 +26,7 @@ const TabelaClientes = (props) => (
                     props.editaCliente(cliente);
                   }}
                 >
-                  Alterar
+                  <BsPencilSquare />
                 </button>
                 <button
                   className="button muted-button"
@@ -35,46 +42,51 @@ const TabelaClientes = (props) => (
                     }
                   }}
                 >
-                  Excluir
+                  <BsTrashFill />
                 </button>
               </td>
             </tr>
-            <Collapsible label="Ver detalhes">
-              <tr>
-                <th>Endereço</th>
-              </tr>
-              <hr />
+            <tr>
+              <th> </th>
+              <td>
+                <button className="button muted-button">Novo Endereço</button>
+                <button className="button muted-button">Novo Telefone</button>
+   
 
+
+                
+              </td>
+                
+
+              
+            </tr>
+
+<Collapsible label="Ver Detalhes">
               {cliente.endereco.length > 0 ? (
                 cliente.endereco.map((data, i) => (
                   <>
                     <tr key={i} className="row-buttons">
-                      <td style={{display: "flex, "}}>
-                        {data.rua}, {data.cidade}, {data.estado} - {data.cep}
+                      <td style={{ display: "flex, " }}>
+                        {data.rua}, {data.cidade}, {data.estado}
                       </td>
 
                       <button
-                        className="button muted-button "
-                        onClick={() => {}}
-                      >
-                        Alterar
-                      </button>
-                      <button
+                        className="button muted-button"
+
+     
                         className="button muted-button"
                         onClick={() => {
-                            
-
                           const confirmaDelete = window.confirm(
                             `Confirma exclusão do endereço?`
                           );
                           if (confirmaDelete) {
-                              console.log("aaaa:", data.id)
-                              props.deletaEndereco(data.id)
-                              window.location.reload()
-                          } 
+                            console.log("aaaa:", data.id);
+                            props.deletaEndereco(data.id);
+                            window.location.reload();
+                          }
                         }}
                       >
-                        Excluir
+                        <BsTrashFill />
                       </button>
                     </tr>
                     <hr />
@@ -85,7 +97,8 @@ const TabelaClientes = (props) => (
                   <td colSpan={3}>Nenhum endereço</td>
                 </tr>
               )}
-            </Collapsible>
+</Collapsible>
+
           </>
         ))
       ) : (

@@ -38,7 +38,7 @@ const AddClienteForm = (props) => {
             placeholder="CPF"
           />
         </div>
-       <AddEnderecoForm />
+
       </div>
       <button>Cadastrar</button>
     </form>

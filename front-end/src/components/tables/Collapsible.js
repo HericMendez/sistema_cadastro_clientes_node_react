@@ -4,9 +4,9 @@ function Collapsible(props){
     const [isOpen, setIsopen] = useState(false);
 
     return(
-        <div className="collapsible">
+        <div className="">
             <button 
-            className="special-btn muted-btn"
+            className="button special-btn"
             onClick={()=> setIsopen(!isOpen)}>
                 {props.label}
 

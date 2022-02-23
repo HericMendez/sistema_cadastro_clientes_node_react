@@ -147,16 +147,25 @@ const Dashboard = () => {
    };
 
 
-  function generatePayload(nome, cpf, rua, cidade, estado, verdadeiro, telefone){
-    return{
+
+  function generatePayload(
+    nome,
+    cpf,
+    rua,
+    cidade,
+    estado,
+    verdadeiro,
+    telefone
+  ) {
+    return {
       nome: nome,
       cpf: cpf,
       rua: rua,
       cidade: cidade,
       estado: estado,
       verdadeiro: verdadeiro,
-      telefone: telefone
-    }
+      telefone: telefone,
+    };
   }
 
 
