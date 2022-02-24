@@ -19,8 +19,7 @@ export class Endereco {
   @Column()
   cidade: string;
 
-  @Column()
-  cep: string;
+
 
   @Column({ name: 'client_id', type: 'varchar' })
   clientId: string;

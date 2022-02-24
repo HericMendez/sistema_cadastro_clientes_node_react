@@ -21,10 +21,6 @@ export class CreateAddress1645061730019 implements MigrationInterface {
             name: "cidade",
             type: "varchar",
           },
-          {
-            name: "cep",
-            type: "varchar",
-          },
 
           {
             name: "client_id",

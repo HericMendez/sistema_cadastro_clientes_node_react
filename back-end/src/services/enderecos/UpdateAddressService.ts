@@ -5,13 +5,13 @@ type AddressUpdateRequest = {
   id: string;
   rua: string;
   cidade: string;
-  cep: string;
+
   principal: boolean;
   estado: string;
 };
 
 export class UpdateAdressService {
-  async execute({ id, rua, cidade, cep, principal, estado }: AddressUpdateRequest) {
+  async execute({ id, rua, cidade, principal, estado }: AddressUpdateRequest) {
     const repository = getRepository(Endereco);
 
     const endereco = await repository.findOne(id);
@@ -21,7 +21,7 @@ export class UpdateAdressService {
 
     endereco.rua = rua ? rua : endereco.rua;
     endereco.cidade = cidade ? cidade : endereco.cidade;
-    endereco.cep = cep ? cep : endereco.cep;
+
     endereco.estado = estado ? estado : endereco.estado;
     
 

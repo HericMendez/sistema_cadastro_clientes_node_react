@@ -7,14 +7,14 @@ type EnderecoRequest = {
   id: string;
   rua: string;
   cidade: string;
-  cep: string;
+
   clientId: string;
   principal: boolean;
   estado: string;
 };
 
 export class CreateAddressService {
-  async execute({id,  rua, cidade, cep, clientId, principal, estado }: EnderecoRequest) {
+  async execute({id,  rua, cidade, clientId, principal, estado }: EnderecoRequest) {
     const repository = getRepository(Endereco);
     const repoClient = getRepository(Client);
 
@@ -26,7 +26,7 @@ export class CreateAddressService {
       id,
       rua,
       cidade,
-      cep,
+
       clientId,
       principal,
       estado

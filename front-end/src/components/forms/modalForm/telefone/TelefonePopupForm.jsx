@@ -1,6 +1,8 @@
 import React from 'react';
 
-export const TelefonePopupForm = ({ onSubmit }) => {
+export const TelefonePopupForm = ({ onSubmit }, props) => {
+  console.log(props)
+
   return (
     <form onSubmit={onSubmit}>
       <div className="form-group">
@@ -10,6 +12,7 @@ export const TelefonePopupForm = ({ onSubmit }) => {
          id="fone" 
          type="text"
          name="fone"
+         
          placeholder='(99)99999-9999'
          />
       </div>

@@ -8,7 +8,7 @@ export class CreateAddressController {
             id,
             rua,
             cidade,
-            cep,
+
             clientId,
             principal,
             estado
@@ -19,7 +19,7 @@ console.log(request.body)
             id,
             rua,
             cidade,
-            cep,
+
             clientId,
             principal,
             estado
