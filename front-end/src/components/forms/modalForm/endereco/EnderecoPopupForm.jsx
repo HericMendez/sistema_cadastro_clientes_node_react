@@ -1,8 +1,9 @@
 import React from 'react';
 
-export const EnderecoPopupForm = ({ onSubmit }) => {
+export const EnderecoPopupForm = ( clientId, { onSubmit }) => {
 
   return (
+    
     <form onSubmit={onSubmit}>
       <div className="form-group">
         <label>Novo Endereço</label>
@@ -34,10 +35,22 @@ export const EnderecoPopupForm = ({ onSubmit }) => {
           placeholder=""
         />
       </div>
+      <input 
+      type="text"
+      name="clientId"
+      id="clientId" 
+      value={clientId.clientId}
+      defaultValue={clientId.clientId}
+
+
+      />
+
+      
       <label>
-        <input type="checkbox"
-        id="check"
-        name="check" />
+        <input 
+        type="checkbox"
+        id="principal"
+        name="principal" />
              Este é meu endereço principal
       </label>
       <div className="form-group">

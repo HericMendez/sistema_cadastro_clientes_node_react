@@ -22,7 +22,7 @@ const EditaClienteForm = (props) => {
         );
         if (confirmaDelete) {
           props.atualizaCliente(cliente.id, cliente);
-          window.location.reload();
+
         } else {
           return;
         }

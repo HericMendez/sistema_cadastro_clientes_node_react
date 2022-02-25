@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import {EndModal} from './EndModal'
-import TriggerButton from '../TriggerButton';
+import { EndModal } from "./EndModal";
+import TriggerButton from "../TriggerButton";
 
 export class EndFormContainer extends Component {
   state = { isShown: false };
@@ -27,7 +27,7 @@ export class EndFormContainer extends Component {
   };
 
   toggleScrollLock = () => {
-    document.querySelector('html').classList.toggle('scroll-lock');
+    document.querySelector("html").classList.toggle("scroll-lock");
   };
   render() {
     return (
@@ -40,6 +40,7 @@ export class EndFormContainer extends Component {
         {this.state.isShown ? (
           <EndModal
             onSubmit={this.props.onSubmit}
+            clientId={this.props.clientId}
             modalRef={(n) => (this.modal = n)}
             buttonRef={(n) => (this.closeButton = n)}
             closeModal={this.closeModal}

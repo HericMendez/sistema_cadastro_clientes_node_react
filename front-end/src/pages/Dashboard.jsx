@@ -60,7 +60,7 @@ const Dashboard = () => {
 
 
   const addCliente = (cliente) => {
-    console.log("call api");
+    window.alert(cliente)
     let payload = Payload.clientPayload(cliente.nome, cliente.cpf);
     console.log(payload);
     connectApi
@@ -80,6 +80,7 @@ const Dashboard = () => {
 
   const addEndereco = (endereco) => {
     console.log("call api");
+
     let payload = Payload.enderecoPayload(
       endereco.rua,
       endereco.cidade,
@@ -87,7 +88,7 @@ const Dashboard = () => {
       endereco.principal,
       endereco.clientId
     );
-    console.log("PAULOAD",payload);
+
     connectApi
       .post(`/enderecos/`, payload)
       .then((res) => {
@@ -97,6 +98,8 @@ const Dashboard = () => {
       .catch((err) => {
         console.log(err);
       });
+
+
   };
 
 
