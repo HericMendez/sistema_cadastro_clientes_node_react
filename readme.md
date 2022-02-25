@@ -19,8 +19,9 @@ Comando "npm start" (front ou back)
 
 
 
-O banco de dados está hospedado em https://www.heroku.com, e a API já está configurada com as variáveis de conexão.
-Há também um backup dos dados locais, juntamente com o arquivo .env contendo as variáveis de conexão com o banco local.
+O banco de dados está hospedado em https://www.heroku.com,
+e a API já está configurada com as variáveis de conexão.
+
 
 Bugs relatados:
 - A página não atualiza automaticamente ao adicionar o deletar um item do formulário;
