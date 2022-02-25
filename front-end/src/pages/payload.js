@@ -18,5 +18,5 @@ export function telefonePayload(numero_telefone, clientId) {
   return {
     numero_telefone: numero_telefone,
     clientId: clientId
-  };
+  }
 }

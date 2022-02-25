@@ -34,8 +34,8 @@
         
        
 
-     props.addEndereco(endereco); 
-        console.log("endereco: ",endereco)
+      props.addEndereco(endereco); 
+      window.location.reload();
 
 
       };
@@ -51,7 +51,7 @@
 
         if (!telefone.numero_telefone || !telefone.clientId) return;
         props.addTelefone(telefone);
-        event.preventDefault();
+        window.location.reload();
       };
 
       return (
@@ -69,13 +69,7 @@
                       <label>CPF:</label>
                       {cliente.cpf}
                     </td>
-                    <td className="dadosprincipais">
-                      <label>id:</label>
-                      {cliente.id}
-                    </td>
-                    <td className="dadosprincipais">
-                      <label>id:</label>
-                    </td>
+
 
                     <td className="row-buttons">
                       <button
@@ -95,6 +89,8 @@
                           );
                           if (confirmaDelete) {
                             props.deletaCliente(cliente.id);
+                            window.location.reload();
+                            
                           } else {
                             return;
                           }
@@ -120,18 +116,18 @@
                     </td>
                   </tr>
 
-                  <Collapsible label="Ver Detalhes">
+                  <Collapsible label="Ver Endereços">
                     {cliente.endereco.length > 0 ? (
                       cliente.endereco.map((data, index) => (
                         <>
                           <tr key={index} className="row-buttons">
                             <td style={{ display: "flex, " }}>
-                              {!data.principal
-                                ? "Endereço:"
-                                : "Endereço Principal:"}
-                              : {data.rua}, {data.cidade}, {data.estado}{" "}
-                              {data.clientId}
-                            </td>
+                            <strong>{!data.principal
+                                ? "Endereço "
+                                : "Endereço Principal"}</strong>  
+                              : <strong> {index}: </strong> - {data.rua}, {data.cidade}, {data.estado}
+            
+                            </td>st
 
                             <button
                               className="button muted-button"
@@ -142,6 +138,7 @@
                                 );
                                 if (confirmaDelete) {
                                   props.deletaEndereco(data.id);
+                                  window.location.reload();
             
                                 }
                               }}
@@ -155,6 +152,43 @@
                     ) : (
                       <tr>
                         <td colSpan={3}>Nenhum endereço</td>
+                      </tr>
+                    )}
+                  </Collapsible>
+                  <Collapsible label="Ver Telefones">
+                    {cliente.telefone.length > 0 ? (
+                      cliente.telefone.map((data, index) => (
+                        <>
+                          <tr key={index} className="row-buttons">
+                            <td style={{ display: "flex, " }}>
+
+                              <strong>Telefone {index}: </strong> - {data.numero_telefone}
+                      
+                            </td>
+
+                            <button
+                              className="button muted-button"
+
+                              onClick={() => {
+                                const confirmaDelete = window.confirm(
+                                  `Confirma exclusão do número de telefone?`
+                                );
+                                if (confirmaDelete) {
+                                  props.deletaEndereco(data.id);
+                                  window.location.reload();
+            
+                                }
+                              }}
+                            >
+                              <BsTrashFill />
+                            </button>
+                          </tr>
+                          <hr />
+                        </>
+                      ))
+                    ) : (
+                      <tr>
+                        <td colSpan={3}>Nenhum telefone!</td>
                       </tr>
                     )}
                   </Collapsible>

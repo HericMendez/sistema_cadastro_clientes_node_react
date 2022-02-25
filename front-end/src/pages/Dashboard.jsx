@@ -12,7 +12,7 @@ const Dashboard = () => {
     getEndApi();
     getFoneApi()
 
-    console.log("renderizou");
+
   }, []);
   const initialFormState = { id: "", nome: "", cpf: "" };
 
@@ -21,7 +21,7 @@ const Dashboard = () => {
 
   let enderecoData = [];
   const [enderecos, setEnderecos] = useState(enderecoData);
-  console.log(enderecos);
+
   let fonesData = [];
   const [telefones, setTelefones] = useState(fonesData);
 
@@ -32,7 +32,7 @@ const Dashboard = () => {
     await connectApi
       .get(`/client/`)
       .then((res) => {
-        console.log("data from Client API:", res.data);
+
         if (res.data == null) clientsData = [];
         else clientsData = res.data;
 
@@ -78,11 +78,11 @@ const Dashboard = () => {
   const addCliente = (cliente) => {
     window.alert(cliente);
     let payload = Payload.clientPayload(cliente.nome, cliente.cpf);
-    console.log(payload);
+
     connectApi
       .post(`/client/`, payload)
       .then((res) => {
-        console.log(res);
+
         setClientes([...clientes, res.data]);
       })
       .catch((err) => {
@@ -103,7 +103,7 @@ const Dashboard = () => {
     connectApi
       .post(`/enderecos/`, payload)
       .then((res) => {
-        console.log("POST Endereco: ", res);
+
         setEnderecos([...enderecos, res.data]);
       })
       .catch((err) => {
@@ -112,13 +112,13 @@ const Dashboard = () => {
   };
 
   const addTelefone = (numero_telefone) => {
-    console.log("call api");
+
     let payload = Payload.telefonePayload(numero_telefone.numero_telefone, numero_telefone.clientId);
     console.log(payload);
     connectApi
       .post(`/telefones/`, payload)
       .then((res) => {
-        console.log("POST Endereco: ", res);
+
         setTelefones([...telefones, res.data]);
       })
       .catch((err) => {
