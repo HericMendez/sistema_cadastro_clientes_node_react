@@ -7,7 +7,7 @@
 
     const TabelaClientes = (props) => {
       const initialEndState = {
-        id: "",
+        clientId: "",
         rua: "",
         cidade: "",
         estado: "",
@@ -34,44 +34,39 @@
     */
 
       const EndOnSubmit = (event) => {
-        /*
-        console.log("debug", endereco)
-        console.log(event.target.rua.value);
-        console.log(event.target.cidade.value);
-        console.log(event.target.estado.value);
-        console.log(event.target.principal.value);
-        console.log(event.target.clientId.value);
+        event.preventDefault(event);
+        console.log("id", event.target.clientId.value)
+        console.log("rua", event.target.rua.value)
+        console.log("cidade", event.target.cidade.value)
+        console.log("estado", event.target.estado.value)
+
 
         //if (!endereco.rua || !endereco.cidade || !endereco.estado) return;
-        /*
+          
         setEndereco({
           rua: event.target.rua.value,
           cidade: event.target.cidade.value,
           estado: event.target.estado.value,
-          id: event.target.clientId.value,
+          clientId: event.target.clientId.value,
         });
+        
+       
 
-        const { name, value } = event.target;
-      console.log(endereco);
-      setEndereco({ ...endereco,   [name]: value });
+     props.addEndereco(endereco); 
+        console.log("endereco: ",endereco)
 
-        // console.log("endereco: ",endereco)
-        window.alert(endereco)
 
-        props.addEndereco(endereco);
+       
 
-        event.preventDefault();
+
         //  console.log("state endereco: ", endereco);*/
 
-        event.preventDefault(event);
 
-        const { name, value } = event.target;
 
-        setTelefone({ ...endereco, [name]: value });
+       // const { name, value } = event.target;
+        console.log("deu boa ")
+       // setEndereco({ ...endereco, [name]: value });
 
-        if (!endereco.numero_telefone) return;
-        props.addTelefone(endereco);
-        event.preventDefault();
       };
       const FoneOnSubmit = (event) => {
         event.preventDefault(event);

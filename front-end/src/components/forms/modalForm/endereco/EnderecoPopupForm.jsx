@@ -1,27 +1,26 @@
-import React from 'react';
 
-export const EnderecoPopupForm = ( clientId, { onSubmit }) => {
-
+export const EnderecoPopupForm = (obj) => {
+  console.log("OBJ:",obj)
   return (
-    
-    <form onSubmit={onSubmit}>
+    <form onSubmit={obj.onSubmit}>
       <div className="form-group">
         <label>Novo Endereço</label>
-        <input 
-        className="form-control"
-         id="name"
-         name="rua" 
-         type="text"
-         placeholder='Endereço (Rua/Av., nº,complemento, bairro, '
-         />
+        <input
+          className="form-control"
+          id="name"
+          name="rua"
+          type="text"
+          placeholder="Endereço (Rua/Av., nº,complemento, bairro, "
+        />
       </div>
+
       <div className="form-group">
         <label>Cidade</label>
         <input
           type="text"
           className="form-control"
           id="cidade"
-          name="cidade" 
+          name="cidade"
           placeholder=""
         />
       </div>
@@ -31,27 +30,21 @@ export const EnderecoPopupForm = ( clientId, { onSubmit }) => {
           type="text"
           className="form-control"
           id="estado"
-          name="estado" 
+          name="estado"
           placeholder=""
         />
       </div>
-      <input 
-      type="text"
-      name="clientId"
-      id="clientId" 
-      value={clientId.clientId}
-      defaultValue={clientId.clientId}
-
+      <input
+        type="text"
+        name="clientId"
+        id="clientId"
+        value={obj.clientId}
 
       />
 
-      
       <label>
-        <input 
-        type="checkbox"
-        id="principal"
-        name="principal" />
-             Este é meu endereço principal
+        <input type="checkbox" id="principal" name="principal" />
+        Este é meu endereço principal
       </label>
       <div className="form-group">
         <button className="form-control btn btn-primary" type="submit">

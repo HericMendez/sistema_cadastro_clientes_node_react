@@ -1,7 +1,6 @@
-
-import ReactDOM from 'react-dom';
-import {EnderecoPopupForm} from './EnderecoPopupForm'
-import FocusTrap from 'focus-trap-react';
+import ReactDOM from "react-dom";
+import { EnderecoPopupForm } from "./EnderecoPopupForm";
+import FocusTrap from "focus-trap-react";
 export const EndModal = ({
   clientId,
   onClickOutside,
@@ -11,8 +10,6 @@ export const EndModal = ({
   closeModal,
   onSubmit
 }) => {
-
-
 
 
   return ReactDOM.createPortal(
@@ -25,11 +22,7 @@ export const EndModal = ({
         className="modal-cover"
         onClick={onClickOutside}
         onKeyDown={onKeyDown}
-        
-        
-
       >
-        
         <div className="modal-area" ref={modalRef}>
           <button
             ref={buttonRef}
@@ -45,12 +38,16 @@ export const EndModal = ({
               <path d="M 10,10 L 30,30 M 30,10 L 10,30" />
             </svg>
           </button>
-          {console.log("modalform2", clientId)}
+
           <div className="modal-body">
-            <EnderecoPopupForm clientId={clientId} onSubmit={onSubmit}  />
+            <EnderecoPopupForm
+
+                clientId={clientId}
+                
+                onSubmit={onSubmit}
+              
+            />
           </div>
-
-
         </div>
       </aside>
     </FocusTrap>,

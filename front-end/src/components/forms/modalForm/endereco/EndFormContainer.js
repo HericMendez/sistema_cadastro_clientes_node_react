@@ -39,8 +39,8 @@ export class EndFormContainer extends Component {
         />
         {this.state.isShown ? (
           <EndModal
-            onSubmit={this.props.onSubmit}
             clientId={this.props.clientId}
+            onSubmit={this.props.onSubmit}
             modalRef={(n) => (this.modal = n)}
             buttonRef={(n) => (this.closeButton = n)}
             closeModal={this.closeModal}
