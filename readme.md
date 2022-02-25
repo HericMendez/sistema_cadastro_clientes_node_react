@@ -17,10 +17,21 @@ Em ambos os casos, o comando "npm install" instala a pasta node_modules.
 Para rodar o app:
 Comando "npm start" (front ou back)
 
-URLs:
+
+
+O banco de dados está hospedado em https://www.heroku.com, e a API já está configurada com as variáveis de conexão.
+Há também um backup dos dados locais, juntamente com o arquivo .env contendo as variáveis de conexão com o banco local.
+
+Bugs relatados:
+- A página não atualiza automaticamente ao adicionar o deletar um item do formulário;
+- O form não possui validações visuais.
+
+
+
+
+URLs locais:
 React:       "http://localhost:3000"
 Node.js API: "http://localhost:8080"
-
 
 Rotas:
 Clientes:
