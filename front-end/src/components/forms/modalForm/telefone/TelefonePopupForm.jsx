@@ -14,7 +14,7 @@ export const TelefonePopupForm = (obj) => {
         />
       </div>
 
-      <input type="text" name="clientId" id="clientId" value={obj.clientId} />
+      <input type="hidden" name="clientId" id="clientId" value={obj.clientId} />
 
       <div className="form-group">
         <button className="form-control btn btn-primary" type="submit">

@@ -32,7 +32,7 @@ export const EnderecoPopupForm = (obj) => {
           placeholder=""
         />
       </div>
-      <input type="text" name="clientId" id="clientId" value={obj.clientId} />
+      <input type="hidden" name="clientId" id="clientId" value={obj.clientId} />
 
       <label>
         <input type="checkbox" id="principal" name="principal" value="true" />

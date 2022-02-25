@@ -70,7 +70,7 @@ const Dashboard = () => {
   }
 
   const addCliente = (cliente) => {
-    window.alert(cliente);
+
     let payload = Payload.clientPayload(cliente.nome, cliente.cpf);
 
     connectApi
