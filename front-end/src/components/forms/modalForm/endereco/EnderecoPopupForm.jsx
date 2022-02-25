@@ -35,7 +35,7 @@ export const EnderecoPopupForm = (obj) => {
         />
       </div>
       <input
-        type="text"
+        type="hidden"
         name="clientId"
         id="clientId"
         value={obj.clientId}
@@ -44,7 +44,7 @@ export const EnderecoPopupForm = (obj) => {
 
       <label>
         <input type="checkbox" id="principal" name="principal" />
-        Este é meu endereço principal
+        Este é meu endereço princdipal
       </label>
       <div className="form-group">
         <button className="form-control btn btn-primary" type="submit">

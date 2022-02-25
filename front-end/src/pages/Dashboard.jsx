@@ -2,14 +2,15 @@ import { useEffect, useState } from "react";
 import AddClienteForm from "../components/forms/AddClienteForm";
 import EditaClienteForm from "../components/forms/EditaClienteForm";
 import TabelaClientes from "../components/tables/TabelaClientes";
-import * as Payload from './payload'
+import * as Payload from "./payload";
 
 import connectApi from "../api";
 
 const Dashboard = () => {
   useEffect(() => {
     getClientApi();
-    getEndApi()
+    getEndApi();
+    getFoneApi()
 
     console.log("renderizou");
   }, []);
@@ -20,7 +21,7 @@ const Dashboard = () => {
 
   let enderecoData = [];
   const [enderecos, setEnderecos] = useState(enderecoData);
-  console.log(enderecos)
+  console.log(enderecos);
   let fonesData = [];
   const [telefones, setTelefones] = useState(fonesData);
 
@@ -46,10 +47,10 @@ const Dashboard = () => {
     await connectApi
       .get(`/enderecos/`)
       .then((res) => {
-        console.log("data from Endereco API:", res.data);
+
         if (res.data == null) enderecoData = [];
         else enderecoData = res.data;
-        console.log(enderecoData)
+
 
         setEnderecos(enderecoData);
       })
@@ -58,9 +59,24 @@ const Dashboard = () => {
       });
   }
 
+  
+  async function getFoneApi() {
+    await connectApi
+      .get(`/telefones/`)
+      .then((res) => {
+
+        if (res.data == null) fonesData = [];
+        else fonesData = res.data;
+        setTelefones(fonesData);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
 
   const addCliente = (cliente) => {
-    window.alert(cliente)
+    window.alert(cliente);
     let payload = Payload.clientPayload(cliente.nome, cliente.cpf);
     console.log(payload);
     connectApi
@@ -74,12 +90,7 @@ const Dashboard = () => {
       });
   };
 
-
-
-
-
   const addEndereco = (endereco) => {
-    console.log("call api");
 
     let payload = Payload.enderecoPayload(
       endereco.rua,
@@ -98,19 +109,16 @@ const Dashboard = () => {
       .catch((err) => {
         console.log(err);
       });
-
-
   };
 
-
-  const addTelefone = (telefone) => {
+  const addTelefone = (numero_telefone) => {
     console.log("call api");
-    let payload = Payload.telefonePayload(telefone.numero_telefone);
+    let payload = Payload.telefonePayload(numero_telefone.numero_telefone, numero_telefone.clientId);
     console.log(payload);
     connectApi
       .post(`/telefones/`, payload)
       .then((res) => {
-        console.log(res);
+        console.log("POST Endereco: ", res);
         setTelefones([...telefones, res.data]);
       })
       .catch((err) => {
@@ -126,7 +134,10 @@ const Dashboard = () => {
   const atualizaCliente = (id, clienteAtualizado) => {
     console.log("call api");
 
-    let payload = Payload.clientPayload(clienteAtualizado.nome, clienteAtualizado.cpf);
+    let payload = Payload.clientPayload(
+      clienteAtualizado.nome,
+      clienteAtualizado.cpf
+    );
     connectApi
       .patch(`/client/${id}`, payload)
       .then((res) => {
@@ -193,7 +204,6 @@ const Dashboard = () => {
       });
   };
 
-
   return (
     <div className="container">
       <h1>React Frontend</h1>
@@ -226,6 +236,7 @@ const Dashboard = () => {
             addTelefone={addTelefone}
             deletaEndereco={deletaEndereco}
             deletaTelefone={deletaTelefone}
+
           />
         </div>
       </div>

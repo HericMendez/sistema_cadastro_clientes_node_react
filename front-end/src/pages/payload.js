@@ -14,8 +14,9 @@ export function enderecoPayload(rua, cidade, estado, principal, clientId) {
   };
 }
 
-export function telefonePayload(telefone) {
+export function telefonePayload(numero_telefone, clientId) {
   return {
-    telefone: telefone,
+    numero_telefone: numero_telefone,
+    clientId: clientId
   };
 }

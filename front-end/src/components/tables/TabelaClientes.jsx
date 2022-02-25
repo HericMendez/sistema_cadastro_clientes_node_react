@@ -18,30 +18,12 @@
       const [endereco, setEndereco] = useState(initialEndState);
       const [telefone, setTelefone] = useState(initialFoneState);
 
-      /*
-      const handleEnderecoChange = (event) => {
-        event.preventDefault();
-        const { name, value } = event.target;
-        console.log(event.target)
-        setEndereco({ ...endereco, [name]: value });
-      };
 
-      const handleFoneChange = (event) => {
-        const { name, value } = event.target;
-        
-        setTelefone({ ...telefone, [name]: value });
-      };
-    */
 
       const EndOnSubmit = (event) => {
         event.preventDefault(event);
-        console.log("id", event.target.clientId.value)
-        console.log("rua", event.target.rua.value)
-        console.log("cidade", event.target.cidade.value)
-        console.log("estado", event.target.estado.value)
 
 
-        //if (!endereco.rua || !endereco.cidade || !endereco.estado) return;
           
         setEndereco({
           rua: event.target.rua.value,
@@ -56,26 +38,18 @@
         console.log("endereco: ",endereco)
 
 
-       
-
-
-        //  console.log("state endereco: ", endereco);*/
-
-
-
-       // const { name, value } = event.target;
-        console.log("deu boa ")
-       // setEndereco({ ...endereco, [name]: value });
-
       };
       const FoneOnSubmit = (event) => {
         event.preventDefault(event);
+        console.log(event.target.numero_telefone.value)
+ 
 
-        const { name, value } = event.target;
+        setTelefone( {
+          numero_telefone: event.target.numero_telefone.value,
+          clientId: event.target.clientId.value
+          });
 
-        setTelefone({ ...telefone, [name]: value });
-
-        if (!telefone.numero_telefone) return;
+        if (!telefone.numero_telefone || !telefone.clientId) return;
         props.addTelefone(telefone);
         event.preventDefault();
       };
@@ -121,7 +95,6 @@
                           );
                           if (confirmaDelete) {
                             props.deletaCliente(cliente.id);
-                            // window.location.reload();
                           } else {
                             return;
                           }
@@ -141,6 +114,7 @@
                       />
                       <FoneFormContainer
                         triggerText="Novo Telefone"
+                        clientId={cliente.id}
                         onSubmit={FoneOnSubmit}
                       />
                     </td>

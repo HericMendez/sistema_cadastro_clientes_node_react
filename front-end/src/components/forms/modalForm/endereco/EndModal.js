@@ -40,11 +40,7 @@ export const EndModal = ({
           </button>
 
           <div className="modal-body">
-            <EnderecoPopupForm
-
-                clientId={clientId}
-                
-                onSubmit={onSubmit}
+            <EnderecoPopupForm  clientId={clientId} onSubmit={onSubmit}
               
             />
           </div>

@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import {FoneModal} from './FoneModal'
-import TriggerButton from '../TriggerButton';
+import { FoneModal } from "./FoneModal";
+import TriggerButton from "../TriggerButton";
 
 export class FoneFormContainer extends Component {
   state = { isShown: false };
@@ -27,7 +27,7 @@ export class FoneFormContainer extends Component {
   };
 
   toggleScrollLock = () => {
-    document.querySelector('html').classList.toggle('scroll-lock');
+    document.querySelector("html").classList.toggle("scroll-lock");
   };
   render() {
     return (
@@ -39,6 +39,7 @@ export class FoneFormContainer extends Component {
         />
         {this.state.isShown ? (
           <FoneModal
+            clientId={this.props.clientId}
             onSubmit={this.props.onSubmit}
             modalRef={(n) => (this.modal = n)}
             buttonRef={(n) => (this.closeButton = n)}

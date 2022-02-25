@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import {TelefonePopupForm} from './TelefonePopupForm'
 import FocusTrap from 'focus-trap-react';
 export const FoneModal = ({
+  clientId,
   onClickOutside,
   onKeyDown,
   modalRef,
@@ -37,7 +38,7 @@ export const FoneModal = ({
             </svg>
           </button>
           <div className="modal-body">
-            <TelefonePopupForm onSubmit={onSubmit} />
+            <TelefonePopupForm clientId={clientId} onSubmit={onSubmit} />
           </div>
         </div>
       </aside>
