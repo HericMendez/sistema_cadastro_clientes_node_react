@@ -7,7 +7,7 @@ export class GetClientListService {
     const clientList = await repository.find({
       relations: ["endereco", "telefone"],
     });
-    getRepository(Client).createQueryBuilder().orderBy("nome", "ASC").getMany();
+    getRepository(Client).createQueryBuilder().orderBy("nome", "DESC").getMany();
     return clientList;
   }
 }

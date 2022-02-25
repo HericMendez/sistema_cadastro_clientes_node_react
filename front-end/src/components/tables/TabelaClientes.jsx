@@ -30,13 +30,14 @@
           cidade: event.target.cidade.value,
           estado: event.target.estado.value,
           clientId: event.target.clientId.value,
+          principal: event.target.principal.checked
         });
         
        
-
+      console.log(endereco)
       props.addEndereco(endereco); 
-      window.location.reload();
 
+      
 
       };
       const FoneOnSubmit = (event) => {
@@ -51,7 +52,8 @@
 
         if (!telefone.numero_telefone || !telefone.clientId) return;
         props.addTelefone(telefone);
-        window.location.reload();
+        setTelefone(initialFoneState)
+
       };
 
       return (
@@ -89,7 +91,7 @@
                           );
                           if (confirmaDelete) {
                             props.deletaCliente(cliente.id);
-                            window.location.reload();
+            
                             
                           } else {
                             return;
@@ -125,9 +127,9 @@
                             <strong>{!data.principal
                                 ? "Endereço "
                                 : "Endereço Principal"}</strong>  
-                              : <strong> {index}: </strong> - {data.rua}, {data.cidade}, {data.estado}
+                              : <strong> {index+1}: </strong> - {data.rua}, {data.cidade}, {data.estado}
             
-                            </td>st
+                            </td>
 
                             <button
                               className="button muted-button"
@@ -138,7 +140,7 @@
                                 );
                                 if (confirmaDelete) {
                                   props.deletaEndereco(data.id);
-                                  window.location.reload();
+                        
             
                                 }
                               }}
@@ -162,7 +164,7 @@
                           <tr key={index} className="row-buttons">
                             <td style={{ display: "flex, " }}>
 
-                              <strong>Telefone {index}: </strong> - {data.numero_telefone}
+                              <strong>Telefone {index+1}: </strong> - {data.numero_telefone}
                       
                             </td>
 
@@ -174,8 +176,8 @@
                                   `Confirma exclusão do número de telefone?`
                                 );
                                 if (confirmaDelete) {
-                                  props.deletaEndereco(data.id);
-                                  window.location.reload();
+                                  props.deletaTelefone(data.id);
+                      
             
                                 }
                               }}

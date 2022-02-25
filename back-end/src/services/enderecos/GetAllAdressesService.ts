@@ -5,6 +5,7 @@ export class GetAllAdressesService {
   async execute() {
     const repository = getRepository(Endereco);
     const endereco = await repository.find({
+        
       relations: ["client"],
     });
 

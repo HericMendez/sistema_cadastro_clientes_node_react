@@ -11,6 +11,8 @@ const Dashboard = () => {
     getClientApi();
     getEndApi();
     getFoneApi();
+
+
   }, []);
   const initialFormState = { id: "", nome: "", cpf: "" };
 
@@ -196,7 +198,7 @@ const Dashboard = () => {
 
   return (
     <div className="container">
-      <h1>React Frontend</h1>
+      <h1>Betha Sistemas - Cadastro de Clientes</h1>
       <div className="flex-row">
         <div className="flex-large">
           {modoEdicao ? (

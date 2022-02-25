@@ -32,10 +32,10 @@ export const EnderecoPopupForm = (obj) => {
           placeholder=""
         />
       </div>
-      <input type="hidden" name="clientId" id="clientId" value={obj.clientId} />
+      <input type="text" name="clientId" id="clientId" value={obj.clientId} />
 
       <label>
-        <input type="checkbox" id="principal" name="principal" />
+        <input type="checkbox" id="principal" name="principal" value="true" />
         Este é meu endereço princdipal
       </label>
       <div className="form-group">
