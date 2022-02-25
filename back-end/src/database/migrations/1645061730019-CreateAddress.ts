@@ -30,14 +30,13 @@ export class CreateAddress1645061730019 implements MigrationInterface {
           {
             name: "principal",
             type: "boolean",
-            default: "false"
+            default: "false",
           },
 
           {
             name: "estado",
             type: "varchar",
           },
-
         ],
         foreignKeys: [
           {

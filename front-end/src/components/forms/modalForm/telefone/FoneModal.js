@@ -1,7 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import {TelefonePopupForm} from './TelefonePopupForm'
-import FocusTrap from 'focus-trap-react';
+import React from "react";
+import ReactDOM from "react-dom";
+import { TelefonePopupForm } from "./TelefonePopupForm";
+import FocusTrap from "focus-trap-react";
 export const FoneModal = ({
   clientId,
   onClickOutside,
@@ -9,7 +9,7 @@ export const FoneModal = ({
   modalRef,
   buttonRef,
   closeModal,
-  onSubmit
+  onSubmit,
 }) => {
   return ReactDOM.createPortal(
     <FocusTrap>

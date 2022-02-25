@@ -8,10 +8,8 @@ export const EndModal = ({
   modalRef,
   buttonRef,
   closeModal,
-  onSubmit
+  onSubmit,
 }) => {
-
-
   return ReactDOM.createPortal(
     <FocusTrap>
       <aside
@@ -40,9 +38,7 @@ export const EndModal = ({
           </button>
 
           <div className="modal-body">
-            <EnderecoPopupForm  clientId={clientId} onSubmit={onSubmit}
-              
-            />
+            <EnderecoPopupForm clientId={clientId} onSubmit={onSubmit} />
           </div>
         </div>
       </aside>

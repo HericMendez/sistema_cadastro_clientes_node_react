@@ -23,9 +23,6 @@ export class UpdateAdressService {
     endereco.cidade = cidade ? cidade : endereco.cidade;
 
     endereco.estado = estado ? estado : endereco.estado;
-    
-
-
 
     await repository.save(endereco);
   }

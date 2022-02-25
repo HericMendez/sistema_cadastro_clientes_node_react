@@ -1,28 +1,18 @@
 import "reflect-metadata";
-import express, {Request, Response} from "express";
+import express, { Request, Response } from "express";
 import "reflect-metadata";
 import "./database";
 import { routes } from "./routes";
-import cors from "cors"
-
-
-
+import cors from "cors";
 
 const app = express();
 
-app.get('/', (req: Request, res: Response )=>{
-    res.send("Nothing to see here")
-})  
-
+app.get("/", (req: Request, res: Response) => {
+  res.send("Nothing to see here");
+});
 
 app.use(express.json());
 app.use(cors());
 app.use(routes);
 
-
-
-app.listen(8080, ()=> console.log("server running on port 8080"))
-
-
-
-
+app.listen(8080, () => console.log("server running on port 8080"));

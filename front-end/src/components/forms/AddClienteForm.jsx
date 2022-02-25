@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-
 const AddClienteForm = (props) => {
   const initialFormState = { id: null, nome: "", cpf: "" };
   const [cliente, setCliente] = useState(initialFormState);
@@ -38,7 +37,6 @@ const AddClienteForm = (props) => {
             placeholder="CPF"
           />
         </div>
-
       </div>
       <button>Cadastrar</button>
     </form>

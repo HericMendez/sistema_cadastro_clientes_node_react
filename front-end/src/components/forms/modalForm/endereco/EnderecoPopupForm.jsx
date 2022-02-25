@@ -1,6 +1,4 @@
-
 export const EnderecoPopupForm = (obj) => {
-  console.log("OBJ:",obj)
   return (
     <form onSubmit={obj.onSubmit}>
       <div className="form-group">
@@ -34,13 +32,7 @@ export const EnderecoPopupForm = (obj) => {
           placeholder=""
         />
       </div>
-      <input
-        type="hidden"
-        name="clientId"
-        id="clientId"
-        value={obj.clientId}
-
-      />
+      <input type="hidden" name="clientId" id="clientId" value={obj.clientId} />
 
       <label>
         <input type="checkbox" id="principal" name="principal" />
